@@ -1,0 +1,10 @@
+Set WshShell = CreateObject("WScript.Shell")
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+DocumentsPath = WshShell.SpecialFolders("MyDocuments")
+
+Set OutFile = FSO.CreateTextFile("DocumentsPath.txt", True)
+OutFile.WriteLine DocumentsPath
+OutFile.Close
+
+MsgBox "The Documents folder location is: " & DocumentsPath & vbCrLf & "This information has been saved to DocumentsPath.txt.", vbInformation, "Documents Folder Location"
